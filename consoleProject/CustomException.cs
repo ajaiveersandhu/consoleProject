@@ -112,11 +112,11 @@ namespace consoleProject
         {
             if (value == 0)
                 throw new CustomException("back to main menu");
-            else if (value > 2 && menuType == 0 || value > 1 && menuType == 1 || value > 5 && menuType == 3)
+            else if (value > 2 && menuType == 0)
                 throw new CustomException("out of scope");
             else if (value < 0)
                 throw new CustomException("negative");
-            else if (value > 10 && menuType == 2)
+            else if (value >= 10 && menuType == 2)
                 throw new CustomException("movies>10");
         }
 

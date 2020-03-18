@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace consoleProject
 {
-    class Guests
+    public class Guests
     {
         public static int movieChoice;
         public static string guestAge;

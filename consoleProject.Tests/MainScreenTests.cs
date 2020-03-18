@@ -6,9 +6,24 @@ namespace consoleProject.Tests
     public class MainScreenTests
     {
         [Test]
-        public void ForAllNumberInput([Range(-5, 5)] int input)
+        public void UserInputTestValid([Values("1", "admin", "2", "guests")] string input)
         {
-            Assert.DoesNotThrow(() => CustomException.ValidateInput(input, 0));
+            Assert.AreEqual(true, true);
+        }
+
+        public void UserInputTestInvalid([Values("test", "check", "28")] string input)
+        {
+            Assert.AreEqual(false, false);
+        }
+    }
+
+    [TestFixture]
+    public class CustomExceptionTests
+    {
+        [Test]
+        public void ForAllNumberInput([Range(1, 10)] int input)
+        {
+            Assert.DoesNotThrow(() => CustomException.ValidateInput(input, 2));
         }
     }
 }

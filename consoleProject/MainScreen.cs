@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace consoleProject
 {
-    class MainScreen
+    public class MainScreen
     {
         static void Main(string[] args)
         {
@@ -89,10 +89,8 @@ namespace consoleProject
         public static void MainHeading()
         {
             Console.Clear();
-
             Console.WriteLine();
             ChangeColorToDarkYellow();
-            //Console.WriteLine(new String('*', Console.WindowWidth));
             CenterText("****************************************");
             CenterText("*********  Welcome to MoviePlex Theatre  *********");
             CenterText("****************************************");
@@ -100,24 +98,9 @@ namespace consoleProject
             Console.WriteLine();
         }
 
-        public static void MainMenu()
+        public static bool UserInput(string userInput)
         {
-            MainHeading();
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("  Please Select From The Following Options:");
-            ChangeColorToBlue();
-            Console.WriteLine("\t1. Administrator");
-            ChangeColorToRed();
-            Console.WriteLine("\t2. Guest");
-            ChangeColorToDarkGray();
-            Console.WriteLine("\n  *You can enter 0 whenever you want to come back here!");
-
-            ChangeColorToDarkYellow();
-            Console.Write("\n  > ");
             int menuType = 0;
-            Console.ForegroundColor = ConsoleColor.Gray;
-            string userInput = Console.ReadLine().ToLower();
-
             switch (userInput)
             {
                 case "1":
@@ -129,7 +112,7 @@ namespace consoleProject
                         Admin adminObj = new Admin();
                         ChangeColorToGray();
                         Admin.AdminMenu();
-                        break;
+                        return false;
                     }
                 case "2":
                 case "guest":
@@ -138,7 +121,7 @@ namespace consoleProject
                         Loading(150);
                         ChangeColorToGray();
                         Guests.GuestsMenu();
-                        break;
+                        return false;
                     }
                 default:
                     {
@@ -172,9 +155,29 @@ namespace consoleProject
                             }
                         }
                         MainMenu();
-                        break;
+                        return true;
                     }
             }
+        }
+        public static bool MainMenu()
+        {
+            MainHeading();
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("  Please Select From The Following Options:");
+            ChangeColorToBlue();
+            Console.WriteLine("\t1. Administrator");
+            ChangeColorToRed();
+            Console.WriteLine("\t2. Guest");
+            ChangeColorToDarkGray();
+            Console.WriteLine("\n  *You can enter 0 whenever you want to come back here!");
+
+            ChangeColorToDarkYellow();
+            Console.Write("\n  > ");
+
+            Console.ForegroundColor = ConsoleColor.Gray;
+            string userInput = Console.ReadLine().ToLower();
+
+            return UserInput(userInput);
         }
     }
 }

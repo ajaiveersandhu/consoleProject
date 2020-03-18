@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace consoleProject
 {
-    class Admin
+    public class Admin
     {
         public static List<KeyValuePair<string, string>> moviesList = new List<KeyValuePair<string, string>>();
         private static int playingToday;
