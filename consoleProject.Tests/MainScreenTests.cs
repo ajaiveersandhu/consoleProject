@@ -6,9 +6,9 @@ namespace consoleProject.Tests
     public class MainScreenTests
     {
         [Test]
-        public void test1()
+        public void ForAllNumberInput([Range(-5, 5)] int input)
         {
-            Assert.AreEqual(1, 1);
+            Assert.DoesNotThrow(() => CustomException.ValidateInput(input, 0));
         }
     }
 }

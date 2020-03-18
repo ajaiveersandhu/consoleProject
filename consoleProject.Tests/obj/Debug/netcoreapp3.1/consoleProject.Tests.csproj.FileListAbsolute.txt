@@ -96,3 +96,4 @@ E:\Workspace\C#\consoleProject.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.V
 E:\Workspace\C#\consoleProject.Tests\obj\Debug\netcoreapp3.1\consoleProject.Tests.dll
 E:\Workspace\C#\consoleProject.Tests\obj\Debug\netcoreapp3.1\consoleProject.Tests.pdb
 E:\Workspace\C#\consoleProject.Tests\obj\Debug\netcoreapp3.1\consoleProject.Tests.genruntimeconfig.cache
+E:\Workspace\C#\consoleProject.Tests\obj\Debug\netcoreapp3.1\consoleProject.Tests.csproj.CoreCompileInputs.cache

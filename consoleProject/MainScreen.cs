@@ -13,16 +13,19 @@ namespace consoleProject
         public static void Loading(int timer)
         {
             Console.Write("\n  ");
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
 
             for (int x = 0; x < 3; x++)
             {
+                Thread.Sleep(timer);
+                Console.Write("+");
+                Thread.Sleep(timer);
+                Console.Write("\b");
                 Thread.Sleep(timer);
                 Console.Write("x");
                 Thread.Sleep(timer);
                 Console.Write("\b");
                 Thread.Sleep(timer);
-                Console.Write("+");
+                Console.Write(".");
             }
 
             Console.WriteLine();
@@ -123,6 +126,7 @@ namespace consoleProject
                     {
                         ChangeColorToDarkYellow();
                         Loading(150);
+                        Admin adminObj = new Admin();
                         ChangeColorToGray();
                         Admin.AdminMenu();
                         break;

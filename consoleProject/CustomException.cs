@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace consoleProject
 {
-    class CustomException : Exception
+    public class CustomException : Exception
     {
 
         public CustomException(string errorType)
@@ -63,6 +63,14 @@ namespace consoleProject
                 MainScreen.TryAgain();
             }
 
+            else if (errorType == "risky customer")
+            {
+                Console.WriteLine("\n\n  There are high chances, Customer could DIE while watching movie.");
+                Thread.Sleep(500);
+                MainScreen.TryAgain();
+                Admin.AdminHeading();
+            }
+
             else if (errorType == "too young")
             {
                 Console.WriteLine(
@@ -76,33 +84,6 @@ namespace consoleProject
                 Thread.Sleep(2000);
                 MainScreen.TryAgain();
             }
-        }
-
-        public static void ValidateMovieEntry(string value)
-        {
-            int age;
-            bool isInt = int.TryParse(value, out age);
-            if (value == "0")
-                throw new CustomException("back to main menu");
-            else if (isInt)
-            {
-                if (Convert.ToInt32(value) < 0)
-                {
-                    throw new CustomException("negative");
-                }
-                else if (!(age == 10 || age == 13 || age == 15 || age == 17))
-                {
-                    throw new CustomException("invalid movie rating");
-                }
-            }
-            else if (!isInt)
-                if (
-                value != "G" &&
-                value != "PG" &&
-                value != "PG-13" &&
-                value != "R" &&
-                value != "NC-17")
-                    throw new CustomException("invalid movie rating");
         }
 
         public static void ValidateMovieChoice(int value)

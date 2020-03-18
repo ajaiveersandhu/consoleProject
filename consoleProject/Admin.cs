@@ -5,17 +5,15 @@ using System.Threading;
 
 namespace consoleProject
 {
-    static class Admin
+    class Admin
     {
-
-
         public static List<KeyValuePair<string, string>> moviesList = new List<KeyValuePair<string, string>>();
         private static int playingToday;
 
-        static Admin()
+        public Admin()
         {
             Admin.WrongPassWordCount = 5;
-            Admin.CorrectPassword = "pc";
+            Admin.CorrectPassword = "PassCode";
         }
 
         static int WrongPassWordCount { get; set; }
@@ -102,11 +100,12 @@ namespace consoleProject
                     Console.Write(" {0} ", WrongPassWordCount);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("more attempts to enter the correct password.");
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1500);
                     MainScreen.ChangeColorToDarkGray();
-                    Console.WriteLine("\n\nGoing back to Main Screen.");
+                    Console.WriteLine("\n  Taking you back to Main Screen.");
+                    MainScreen.ChangeColorToBlue();
+                    Thread.Sleep(1000);
                     MainScreen.Loading(150);
-
                     MainScreen.MainMenu();
 
                 }
@@ -172,6 +171,7 @@ namespace consoleProject
             {
                 default:
                     playingToday = Convert.ToInt32(userInput);
+                    Thread.Sleep(500);
                     AdminMenuAddMovies();
                     break;
             }
@@ -303,9 +303,57 @@ namespace consoleProject
                             }
                         default:
                             {
+
                                 try
                                 {
-                                    CustomException.ValidateMovieEntry(ratingOrAge);
+                                    int age;
+                                    bool isInt = int.TryParse(ratingOrAge, out age);
+                                    if (ratingOrAge == "0")
+                                        throw new CustomException("back to main menu");
+                                    else if (isInt)
+                                    {
+                                        if (age < 0)
+                                        {
+                                            throw new CustomException("negative");
+                                        }
+                                        else if (age > 17 && age < 120)
+                                        {
+                                            ratingOrAge = "NC-17";
+                                            moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));
+                                        }
+                                        else if (age > 15 && age < 120)
+                                        {
+                                            ratingOrAge = "R";
+                                            moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));
+                                        }
+                                        else if (age > 13 && age < 120)
+                                        {
+                                            ratingOrAge = "PG-13";
+                                            moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));
+                                        }
+                                        else if (age > 10 && age < 120)
+                                        {
+                                            ratingOrAge = "PG";
+                                            moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));
+                                        }
+                                        else if (age > 10 && age < 120)
+                                        {
+                                            ratingOrAge = "G";
+                                            moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));
+                                        }
+                                        else if (age > 120)
+                                        {
+                                            throw new CustomException("risky customer");
+                                        }
+                                    }
+                                    else if (!isInt)
+                                        if (
+                                        ratingOrAge != "G" &&
+                                        ratingOrAge != "PG" &&
+                                        ratingOrAge != "PG-13" &&
+                                        ratingOrAge != "R" &&
+                                        ratingOrAge != "NC-17")
+                                            throw new CustomException("invalid movie rating");
                                 }
                                 catch (CustomException)
                                 {

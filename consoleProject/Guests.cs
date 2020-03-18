@@ -183,7 +183,14 @@ namespace consoleProject
             GuestHeading();
 
             MainScreen.ChangeColorToRed();
-            Console.WriteLine("  Playing {0}\n\n", Admin.moviesList[movieChoice - 1].Key);
+            Console.Write("  Playing ");
+            for (int i = 0; i < 50; i++)
+            {
+                Thread.Sleep(50);
+                Console.Write("-");
+            }
+            MainScreen.ChangeColorToDarkYellow();
+            Console.WriteLine("  {0}", Admin.moviesList[movieChoice - 1].Key);
             MainScreen.ChangeColorToDarkYellow();
             int timer = 150;
 
@@ -253,6 +260,7 @@ namespace consoleProject
             }
             catch (CustomException)
             {
+                GuestsMenuEnjoy();
             }
             catch (OverflowException)
             {
