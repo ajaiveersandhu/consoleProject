@@ -11,7 +11,7 @@ namespace consoleProject.Tests
             Assert.AreEqual(true, true);
         }
 
-        public void UserInputTestInvalid([Values("test", "check", "28")] string input)
+        public void UserInputTestInvalid([Values("test", "check", 28)] string input)
         {
             Assert.AreEqual(false, false);
         }
@@ -21,7 +21,7 @@ namespace consoleProject.Tests
     public class CustomExceptionTests
     {
         [Test]
-        public void ForAllNumberInput([Range(1, 10)] int input)
+        public void ForAllNumberInput([Range(-5, 10)] int input)
         {
             Assert.DoesNotThrow(() => CustomException.ValidateInput(input, 2));
         }

@@ -303,7 +303,6 @@ namespace consoleProject
                             }
                         default:
                             {
-
                                 try
                                 {
                                     int age;
@@ -336,7 +335,7 @@ namespace consoleProject
                                             ratingOrAge = "PG";
                                             moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));
                                         }
-                                        else if (age > 10 && age < 120)
+                                        else if (age > 0 && age < 120)
                                         {
                                             ratingOrAge = "G";
                                             moviesList.Add(new KeyValuePair<string, string>(movieName, ratingOrAge));

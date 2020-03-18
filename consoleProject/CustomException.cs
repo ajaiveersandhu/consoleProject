@@ -116,7 +116,7 @@ namespace consoleProject
                 throw new CustomException("out of scope");
             else if (value < 0)
                 throw new CustomException("negative");
-            else if (value >= 10 && menuType == 2)
+            else if (value > 10 && menuType == 2)
                 throw new CustomException("movies>10");
         }
 
