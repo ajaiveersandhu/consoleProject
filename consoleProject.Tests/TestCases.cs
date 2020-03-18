@@ -4,9 +4,8 @@ using System;
 namespace consoleProject.Tests
 {
     [TestFixture]
-    public class MainScreenTests
+    public class TestCases
     {
-
         [Test]
         public void UserInputTestValid([Values("1", "Admin", "2", "GUests")] string input)
         {
@@ -42,6 +41,16 @@ namespace consoleProject.Tests
             Assert.DoesNotThrow(() => CustomException.ValidateInput(input, 2));
         }
 
+        [Test]
+        public void ValidateGuestAgeTest([Range(-5, 150)] int input)
+        {
+            Assert.DoesNotThrow(() => CustomException.ValidateGuestAge(input, input));
+        }
 
+        [Test]
+        public void ValidateMovieChoiceTest([Range(-5, 10)] int input)
+        {
+            Assert.DoesNotThrow(() => CustomException.ValidateMovieChoice(input));
+        }
     }
 }

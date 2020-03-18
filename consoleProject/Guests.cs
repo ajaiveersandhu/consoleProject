@@ -119,7 +119,7 @@ namespace consoleProject
             }
         }
 
-        private static bool GuestsMenuVerifyAge()
+        public static void GuestsMenuVerifyAge()
         {
             GuestHeading();
 
@@ -174,7 +174,7 @@ namespace consoleProject
             {
                 default:
                     LoadingMovie();
-                    return true;
+                    break;
             }
         }
 
@@ -240,7 +240,7 @@ namespace consoleProject
             GuestsMenuEnjoy();
         }
 
-        private static bool GuestsMenuEnjoy()
+        public static void GuestsMenuEnjoy()
         {
             GuestHeading();
 
@@ -277,7 +277,7 @@ namespace consoleProject
                 case "1":
                     Console.Clear();
                     GuestsMenu();
-                    return true;
+                    break;
                 case "2":
                     MainScreen.ChangeColorToDarkGray();
                     Console.WriteLine("\n  Taking you back to Main Screen.");
@@ -285,9 +285,9 @@ namespace consoleProject
                     Thread.Sleep(1000);
                     MainScreen.Loading(150);
                     MainScreen.MainMenu();
-                    return true;
+                    break;
                 default:
-                    return true;
+                    break;
             }
         }
     }
