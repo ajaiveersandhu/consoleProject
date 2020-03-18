@@ -1,0 +1,13 @@
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.AssemblyInfoInputs.cache
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.AssemblyInfo.cs
+E:\Workspace\C#\consoleProject\bin\Debug\netcoreapp3.1\consoleProject.exe
+E:\Workspace\C#\consoleProject\bin\Debug\netcoreapp3.1\consoleProject.deps.json
+E:\Workspace\C#\consoleProject\bin\Debug\netcoreapp3.1\consoleProject.runtimeconfig.json
+E:\Workspace\C#\consoleProject\bin\Debug\netcoreapp3.1\consoleProject.runtimeconfig.dev.json
+E:\Workspace\C#\consoleProject\bin\Debug\netcoreapp3.1\consoleProject.dll
+E:\Workspace\C#\consoleProject\bin\Debug\netcoreapp3.1\consoleProject.pdb
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.dll
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.pdb
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.genruntimeconfig.cache
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.csprojAssemblyReference.cache
+E:\Workspace\C#\consoleProject\obj\Debug\netcoreapp3.1\consoleProject.csproj.CoreCompileInputs.cache
