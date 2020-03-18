@@ -5,6 +5,11 @@ namespace consoleProject
 {
     public class MainScreen
     {
+
+        public static int Add(int x, int y)
+        {
+            return x + y;
+        }
         static void Main(string[] args)
         {
             MainMenu();
@@ -101,6 +106,8 @@ namespace consoleProject
         public static bool UserInput(string userInput)
         {
             int menuType = 0;
+            userInput = userInput.ToLower();
+
             switch (userInput)
             {
                 case "1":
@@ -175,7 +182,7 @@ namespace consoleProject
             Console.Write("\n  > ");
 
             Console.ForegroundColor = ConsoleColor.Gray;
-            string userInput = Console.ReadLine().ToLower();
+            string userInput = Console.ReadLine();
 
             return UserInput(userInput);
         }

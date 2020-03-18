@@ -1,29 +1,47 @@
 ﻿using NUnit.Framework;
+using System;
 
 namespace consoleProject.Tests
 {
     [TestFixture]
     public class MainScreenTests
     {
+
         [Test]
-        public void UserInputTestValid([Values("1", "admin", "2", "guests")] string input)
+        public void UserInputTestValid([Values("1", "Admin", "2", "GUests")] string input)
         {
-            Assert.AreEqual(true, true);
+            bool testInput = MainScreen.UserInput(input);
+            Assert.AreEqual(false, testInput);
+
+            var ex = Assert.Throws<FormatException>(() => MainScreen.UserInput(input));
+            Assert.That(ex.Message, Is.EqualTo("\n\n  The inserted value was not a number."));
         }
 
+        [Test]
         public void UserInputTestInvalid([Values("test", "check", 28)] string input)
         {
-            Assert.AreEqual(false, false);
+            bool testInput = MainScreen.UserInput(input);
+            Assert.AreEqual(true, testInput);
         }
+
+        [Test]
+        public void UserInputTestNegative([Values(-28)] string input)
+        {
+            bool testInput = MainScreen.UserInput(input);
+            Assert.AreEqual(true, testInput);
+        }
+
     }
 
     [TestFixture]
     public class CustomExceptionTests
     {
         [Test]
-        public void ForAllNumberInput([Range(-5, 10)] int input)
+        public void ValidateInputTest([Range(-5, 10)] int input)
         {
             Assert.DoesNotThrow(() => CustomException.ValidateInput(input, 2));
         }
+
+
     }
 }
